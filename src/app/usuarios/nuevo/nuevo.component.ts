@@ -14,12 +14,14 @@ export class NuevoComponent {
 
   constructor(private usuarioService: UsuarioService){
     this.frmNuevo = new FormGroup({
+      id: new FormControl(Date.now()),
       nombre: new FormControl(null, Validators.required),
 			apellido: new FormControl(null, Validators.required)
     })
   }
 
   onSubmit(){
-    this.usuarioService.userList.push(this.frmNuevo.value)
+    this.usuarioService.insertar(this.frmNuevo.value)
+    this.frmNuevo.reset()
   }
 }

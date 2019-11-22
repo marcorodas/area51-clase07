@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router'
+
+import { UsuarioService } from '../usuario.service'
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router, private usuarioService: UsuarioService) { }
 
   ngOnInit() {
+  }
+
+  edicion(id:number){
+    console.log(id)
   }
 
 }

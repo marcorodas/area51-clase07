@@ -1,3 +1,18 @@
-<p>
-  home works!
-</p>
+<div class="row pt-3 justify-content-center pt-3">
+  <div class="d-flex flex-column border border-info rounded">
+    <table class="table b-0">
+      <thead>
+        <tr class="table-info">
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Editar</th>
+        </tr>
+      </thead>
+      <tr *ngFor="let item of usuarioService.listar()">
+        <td>{{item.nombre}}</td>
+        <td>{{item.apellido}}</td>
+        <td><button class="btn btn-primary" (click)="edicion()">Edicion</button></td>
+      </tr>
+    </table>  
+  </div>
+</div>
