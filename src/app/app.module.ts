@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { Route, RouterModule} from '@angular/router'
 
 import { AppComponent } from './app.component';
-import { HelloComponent } from './hello.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { NuevoComponent } from './usuarios/nuevo/nuevo.component';
 import { EdicionComponent } from './usuarios/edicion/edicion.component';
+
+import { ReactiveFormsModule } from "@angular/forms";
+import { UsuarioService } from './usuario.service'
 
 const rutas: Route[] = [
     {path: "", component: LoginComponent},
@@ -22,8 +24,9 @@ const rutas: Route[] = [
 ]
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(rutas) ],
-  declarations: [ AppComponent, HelloComponent, HomeComponent, LoginComponent, UsuariosComponent, NuevoComponent, EdicionComponent ],
-  bootstrap:    [ AppComponent ]
+  imports:      [ BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(rutas) ],
+  declarations: [ AppComponent, HomeComponent, LoginComponent, UsuariosComponent, NuevoComponent, EdicionComponent ],
+  bootstrap:    [ AppComponent ],
+  providers: [UsuarioService]
 })
 export class AppModule { }
